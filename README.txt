@@ -25,4 +25,4 @@ module.exports = {
 ////////////////////////////////////////////////////////////
 
 2.
-you would have to create a folder named uploads too in the roo directory.
+you would have to create a folder named uploads too in the root directory.
