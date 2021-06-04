@@ -1,4 +1,4 @@
-const keys = require('../keys.js');
+// const keys = require('../keys.js');
 
 const AdminBro = require('admin-bro');
 const AdminBroExpress = require('@admin-bro/express');
@@ -18,12 +18,12 @@ const adminBro = new AdminBro({
 });
 
 const ADMIN = {
-    email: process.env.ADMIN_EMAIL || keys.admin.email,
-    password: process.env.ADMIN_PASSWORD || keys.admin.password,
+    email: process.env.ADMIN_EMAIL || process.env.adminEmail,
+    password: process.env.ADMIN_PASSWORD || process.env.adminPassword,
 }
 const router = AdminBroExpress.buildAuthenticatedRouter(adminBro, {
-    cookieName: process.env.ADMIN_COOKIE_NAME || 'admin-bro',
-    cookiePassword: process.env.ADMIN_COOKIE_PASS || keys.adminBrowserPassword,
+    cookieName: 'admin-bro',
+    cookiePassword: process.env.adminBrowserPassword ,
     authenticate: async(email, password) =>{
         if(email === ADMIN.email && password === ADMIN.password){
             return ADMIN;

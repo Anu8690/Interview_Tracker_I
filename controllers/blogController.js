@@ -1,4 +1,4 @@
-const keys = require('../keys.js');
+// const keys = require('../keys.js');
 
 const Blog = require('../models/blog');
 const jwt = require('jsonwebtoken');
@@ -89,7 +89,7 @@ const blog_delete = (req, res) => {
     //   });
     /////////////////////////////////////////////////////////
 
-    jwt.verify(token, keys.secret, (err, decodedToken) => {
+    jwt.verify(token, process.env.secret, (err, decodedToken) => {
       if (err) {
         res.json({ error: 'User Not verified' });
       } else {

@@ -1,4 +1,4 @@
-const keys = require('../keys.js');
+// const keys = require('../keys.js');
 
 const User = require('../models/User');
 var fs = require('fs');
@@ -22,7 +22,7 @@ const editProfile = (req, res, next) => {
         }
 
         const token = req.cookies.jwt;
-        jwt.verify(token, keys.secret, async (err, decodedToken) => {
+        jwt.verify(token, process.env.secret, async (err, decodedToken) => {
             if (err) {
                 console.log(err);
                 // res.locals.user = null;

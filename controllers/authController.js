@@ -1,4 +1,4 @@
-const keys = require('../keys.js');
+// const keys = require('../keys.js');
 
 const User = require("../models/User");
 const jwt = require('jsonwebtoken');
@@ -40,7 +40,7 @@ const handleErrors = (err) => {
 // create json web token
 const maxAge = 3 * 24 * 60 * 60;
 const createToken = (id) => {
-  return jwt.sign({ id }, keys.secret, {
+  return jwt.sign({ id }, process.env.secret, {
     expiresIn: maxAge
   });
 };

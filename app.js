@@ -1,5 +1,5 @@
-const keys = require('./keys.js');
-
+// const keys = require('./keys.js');
+require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const cookieParser = require('cookie-parser');
@@ -20,10 +20,10 @@ const expRoutes = require('./routes/expRoutes');
 const profileRoutes = require('./routes/profileRoutes');
 
 const app = express();
-
-const dbURI = 'mongodb+srv://'+ keys.mongoDb.username+':'+keys.mongoDb.password+'@cluster0.l9mcp.mongodb.net/InerviewUsers?retryWrites=true&w=majority';
+const PORT = process.env.PORT || 3001;
+const dbURI = 'mongodb+srv://'+ process.env.dbUserName+':'+process.env.dbPassword +'@cluster0.l9mcp.mongodb.net/InerviewUsers?retryWrites=true&w=majority';
 mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true })
-  .then((result) => app.listen(3001))
+  .then((result) => app.listen(PORT))
   .catch((err) => console.log(err));
 // middleware
 app.use('/admin', adminRoutes);
@@ -90,7 +90,7 @@ app.post('/', upload.single('image'), (req, res, next) => {
   }
 
   const token = req.cookies.jwt;
-  jwt.verify(token, keys.secret, async (err, decodedToken) => {
+  jwt.verify(token, process.env.secret, async (err, decodedToken) => {
     if (err) {
       console.log(err);
       // res.locals.user = null;
