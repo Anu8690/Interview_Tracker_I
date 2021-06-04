@@ -1,4 +1,7 @@
 {
+  "scripts":{
+    "start":"node app.js"
+  },
   "dependencies": {
     "@admin-bro/express": "^3.0.1",
     "@admin-bro/mongoose": "^1.1.0",
@@ -11,6 +14,7 @@
     "express-formidable": "^1.2.0",
     "express-session": "^1.17.1",
     "fs": "^0.0.1-security",
+    "gh-pages": "^3.2.0",
     "google-auth-library": "^6.1.3",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.11.8",

@@ -23,7 +23,7 @@ const app = express();
 
 const dbURI = 'mongodb+srv://'+ keys.mongoDb.username+':'+keys.mongoDb.password+'@cluster0.l9mcp.mongodb.net/InerviewUsers?retryWrites=true&w=majority';
 mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true })
-  .then((result) => app.listen(3000))
+  .then((result) => app.listen(3001))
   .catch((err) => console.log(err));
 // middleware
 app.use('/admin', adminRoutes);
