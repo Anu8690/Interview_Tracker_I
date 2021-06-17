@@ -8,6 +8,9 @@ const viewProfile = (req, res) => {
     res.render('profile', {title: 'My Profile'});
 }
 
+// TODO conditional update /
+// right now we have to fill everythinf in update form for it to work
+
 const editProfile = (req, res, next) => {
 
         // console.log(req);
