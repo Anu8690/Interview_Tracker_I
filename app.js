@@ -21,7 +21,7 @@ const profileRoutes = require('./routes/profileRoutes');
 
 const app = express();
 const PORT = process.env.PORT || 3001;
-const dbURI = 'mongodb+srv://'+ process.env.dbUserName+':'+process.env.dbPassword +'@cluster0.l9mcp.mongodb.net/InerviewUsers?retryWrites=true&w=majority';
+const dbURI = 'mongodb+srv://'+ process.env.dbUserName+':'+process.env.dbPassword +'@cluster0.l9mcp.mongodb.net/?retryWrites=true&w=majority';
 mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true })
   .then((result) => app.listen(PORT))
   .catch((err) => console.log(err));
