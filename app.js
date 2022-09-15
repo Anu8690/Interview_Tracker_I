@@ -22,7 +22,7 @@ const profileRoutes = require('./routes/profileRoutes');
 const dbUserName = 'roi_001'
 const dbPassword = 'Anurag93'
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3001;
 const dbURI = 'mongodb+srv://'+ dbUserName+':'+dbPassword +'@cluster0.l9mcp.mongodb.net/?retryWrites=true&w=majority';
 mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true })
   .then((result) => app.listen(PORT))
