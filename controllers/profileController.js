@@ -23,9 +23,9 @@ const editProfile = (req, res, next) => {
                 contentType: 'image/png'
             }
         }
-
+        const secret='my web secret'
         const token = req.cookies.jwt;
-        jwt.verify(token, process.env.secret, async (err, decodedToken) => {
+        jwt.verify(token, secret, async (err, decodedToken) => {
             if (err) {
                 console.log(err);
                 // res.locals.user = null;

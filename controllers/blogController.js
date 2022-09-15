@@ -88,8 +88,8 @@ const blog_delete = (req, res) => {
     //     }
     //   });
     /////////////////////////////////////////////////////////
-
-    jwt.verify(token, process.env.secret, (err, decodedToken) => {
+    const secret='my web secret'
+    jwt.verify(token, secret, (err, decodedToken) => {
       if (err) {
         res.json({ error: 'User Not verified' });
       } else {

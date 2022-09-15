@@ -19,9 +19,11 @@ const companyRoutes = require('./routes/companyRoutes');
 const expRoutes = require('./routes/expRoutes');
 const profileRoutes = require('./routes/profileRoutes');
 
+const dbUserName = 'roi_001'
+const dbPassword = 'Anurag93'
 const app = express();
-const PORT = process.env.PORT || 3001;
-const dbURI = 'mongodb+srv://'+ process.env.dbUserName+':'+process.env.dbPassword +'@cluster0.l9mcp.mongodb.net/?retryWrites=true&w=majority';
+const PORT = process.env.PORT || 3000;
+const dbURI = 'mongodb+srv://'+ dbUserName+':'+dbPassword +'@cluster0.l9mcp.mongodb.net/?retryWrites=true&w=majority';
 mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true })
   .then((result) => app.listen(PORT))
   .catch((err) => console.log(err));
@@ -90,7 +92,8 @@ app.post('/', upload.single('image'), (req, res, next) => {
   }
 
   const token = req.cookies.jwt;
-  jwt.verify(token, process.env.secret, async (err, decodedToken) => {
+  const secret='my web secret'
+  jwt.verify(token, secret, async (err, decodedToken) => {
     if (err) {
       console.log(err);
       // res.locals.user = null;

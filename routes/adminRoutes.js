@@ -18,12 +18,12 @@ const adminBro = new AdminBro({
 });
 
 const ADMIN = {
-    email: process.env.ADMIN_EMAIL || process.env.adminEmail,
-    password: process.env.ADMIN_PASSWORD || process.env.adminPassword,
+    email: process.env.ADMIN_EMAIL || 'admin@example.com',
+    password: process.env.ADMIN_PASSWORD || 'lovejs',
 }
 const router = AdminBroExpress.buildAuthenticatedRouter(adminBro, {
     cookieName: 'admin-bro',
-    cookiePassword: process.env.adminBrowserPassword ,
+    cookiePassword: process.env.adminBrowserPassword || 'superSecretLongLongPasswordForABrowser' ,
     authenticate: async(email, password) =>{
         if(email === ADMIN.email && password === ADMIN.password){
             return ADMIN;
